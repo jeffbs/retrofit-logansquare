@@ -10,6 +10,7 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashMap;
 
 import static com.bluelinelabs.logansquare.ConverterUtils.parameterizedTypeOf;
 
@@ -35,7 +36,7 @@ final class LoganSquareResponseBodyConverter implements Converter<ResponseBody, 
                 Type firstType = typeArguments[0];
 
                 Type rawType = parameterizedType.getRawType();
-                if (rawType == Map.class) {
+                if (rawType == Map.class || rawType == LinkedHashMap.class) {
                     return LoganSquare.parseMap(is, (Class<?>) typeArguments[1]);
 
                 } else if (rawType == List.class) {
