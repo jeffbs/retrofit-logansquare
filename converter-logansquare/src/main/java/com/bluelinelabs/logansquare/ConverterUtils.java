@@ -3,6 +3,7 @@ package com.bluelinelabs.logansquare;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Map;
+import java.util.LinkedHashMap;
 
 /**
  * Utility class for the {@link com.github.aurae.retrofit2.LoganSquareConverterFactory}. This resides in LoganSquare's
@@ -33,7 +34,7 @@ public final class ConverterUtils {
             Type firstType = typeArguments[0];
 
             Type rawType = pt.getRawType();
-            if (rawType == Map.class) {
+            if (rawType == Map.class || rawType == LinkedHashMap.class) {
                 // LoganSquare only handles Map objects with String keys and supported types
                 Type secondType = typeArguments[1];
                 if (firstType != String.class || !isSupported(secondType)) {
