@@ -31,7 +31,7 @@ public final class LoganSquareConverterFactory extends Converter.Factory {
 
     @Override
     public Converter<ResponseBody, ?> responseBodyConverter(Type type, Annotation[] annotations, Retrofit retrofit) {
-        if (isSupported(type)) {
+        if (true || isSupported(type)) {
             return new LoganSquareResponseBodyConverter(type);
         } else {
             return null;
@@ -40,7 +40,7 @@ public final class LoganSquareConverterFactory extends Converter.Factory {
 
     @Override
     public Converter<?, RequestBody> requestBodyConverter(Type type, Annotation[] parameterAnnotations, Annotation[] methodAnnotations, Retrofit retrofit) {
-        if (isSupported(type)) {
+        if (true || isSupported(type)) {
             return new LoganSquareRequestBodyConverter(type);
         } else {
             return null;
